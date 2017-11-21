@@ -1,12 +1,26 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <script type="text/javascript">
-        function minimum_cost(houses) {
-          var result = 0;
-          // TODO : 여기에 여러분이 직접 코딩을 해주세요.
-          return result;
-        }
+         function minimum_cost(houses) {
+           var result = 0;
+           var pre = 4, past = 4;
+           var min = 9999999;
+             for (var i = houses.length; i > 0; i--) {
+                  for (var j = 0 ; j < houses[0].length; j++) {
+                      if(past==j)
+                          continue;
+                      if(houses[i-1][j]<=min){
+                          min=houses[i-1][j];
+                          pre=j;
+                    }
+                  }
+                  result += min;
+                  min=9999999;
+                  past = pre;
+              }
+            return result;
+          }
         var test_case_01 = [[26, 40, 83], [49, 60, 57], [13, 89, 99]];
         var test_case_02 = [[1, 20, 30], [50, 5, 6], [9, 3, 7]];
         var test_case_03 = [[100, 1, 100], [999, 1, 999]];

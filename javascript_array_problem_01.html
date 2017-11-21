@@ -1,11 +1,21 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <script type="text/javascript">
         function calculate(arr) {
           var result = 0;
           // TODO : 여기에 여러분이 직접 코딩을 해주세요.       
-          return result;
+          for (var i = 1; i < arr.length; i+=2) {
+                  switch(arr[i]){
+                     case '+' : result += arr[i+1];
+                                break;
+                     case '-' : result -= arr[i+1];
+                                break;
+                     case '*' : result *= arr[i+1];
+                                break;
+                 }
+              } 
+            return result;
         }
 
         expect(calculate([1, '+', 2]), 3);

@@ -1,12 +1,22 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <script type="text/javascript">
-        function check_string() {
-          // TODO : 여기에 여러분이 직접 코딩을 해주세요.          
-          return true;
-        }
-
+      function check_string() {
+           // TODO : 여기에 여러분이 직접 코딩을 해주세요.          
+             var open = 0, close = 0;
+             for (var i = 0; i < arguments[0].length; i++) {
+                 if(arguments[0].charAt(i)=='(')
+                     open++;
+ 
+                 else if (arguments[0].charAt(i)==')')
+                     close++;
+             }
+             if(open == close)
+                 return true;
+             else
+                 return false;
+          }
         expect(check_string('(())())'), false);
         expect(check_string('(((()())()'), false);
         expect(check_string('(()())((()))'), true);
